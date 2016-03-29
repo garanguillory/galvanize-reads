@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+{% for book in book_to_delete %}
+  <div class="container">
+  <p>This is the delete page.</p>
+    <h1>{{ book.title }}</h1>
+    <h4>{{ book.genre }}</h4>
+    <h4>{{ book.description }}</h4>
+    <img src="{{ book.cover_url }}">
+    <form action="/books/{{ book.id }}/delete" method="post">
+      <a href="/books/{{ book.id }}"><input id="cancel" class="btn btn-default" type="button" value="Cancel"></a>
+      <input id="delete" class="btn btn-default" type="submit" value="Delete"><br><br>
+    </form>
+    <p>Back to <a href="/books">All Books</a></p>
+  </div>
+{% endfor %}
+
+{% endblock %}

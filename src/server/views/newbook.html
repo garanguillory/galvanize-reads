@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+  <div class="container">
+    <form action="/books/new" method="post">
+      <label for="">Title</label><br>
+      <input name="title" type="text" placeholder="book title goes here"><br><br>
+      <label for="">Genre</label><br>
+      <input name="genre" type="text" placeholder="genre goes here"><br><br>
+      <label for="">Description</label><br> 
+      <textarea name="description" placeholder="book description goes here"></textarea><br><br>
+      <label for="">Cover Image URL</label><br> 
+      <input name="cover_url" type="text" placeholder="www.imagegoeshere.com"><br><br>
+      <input id="add-book" class="btn btn-default" type="submit" value="Add Book">
+      <a href="/books"><input id="cancel" class="btn btn-default" type="button" value="Cancel"></a><br><br>
+    </form>
+  </div>
+
+{% endblock %}

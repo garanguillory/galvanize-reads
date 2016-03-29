@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+  <div class="container">
+  {% for author in programmers %}
+    <form action="/authors/{{ author.id }}/edit" method="post">
+      <label for="first_name">First Name</label><br>
+      <input name="first_name" type="text" value="{{ author.first_name }}"><br><br>
+      <label for="last_name">Last Name</label><br>
+      <input name="last_name" type="text" value="{{ author.last_name }}"><br><br>
+      <label for="biography">Biography</label><br> 
+      <textarea name="biography">{{ author.biography }}</textarea><br><br>
+      <label for="">Portrait URL</label><br> 
+      <input name="portrait_url" type="text" value="{{ author.portrait_url }}"><br><br>
+      <input id="edit-book" class="btn btn-default" type="submit" value="Edit Book">
+      <a href="/authors/{{ author.id }}"><input id="cancel" class="btn btn-default" type="button" value="Cancel"></a><br><br>
+      <p>Back to <a href="/authors">All Authors</a></p>
+    </form>
+  {% endfor %}
+  </div>
+
+{% endblock %}

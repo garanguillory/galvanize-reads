@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+  <div class="container">
+    <form action="/authors/new" method="post">
+      <label for="first_name">First Name</label><br>
+      <input name="first_name" type="text" placeholder="first name goes here"><br><br>
+      <label for="last_name">Last Name</label><br>
+      <input name="last_name" type="text" placeholder="last name goes here"><br><br>
+      <label for="biography">Biography</label><br> 
+      <textarea name="biography" placeholder="author biography goes here"></textarea><br><br>
+      <label for="">Portrait URL</label><br> 
+      <input name="portrait_url" type="text" placeholder="www.imagegoeshere.com"><br><br>
+      <input id="add-author" class="btn btn-default" type="submit" value="Add Author">
+      <a href="/authors"><input id="cancel" class="btn btn-default" type="button" value="Cancel"></a><br><br>
+    </form>
+  </div>
+
+{% endblock %}

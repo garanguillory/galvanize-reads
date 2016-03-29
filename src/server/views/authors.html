@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+  <div class="container">
+  {% for author in programmers %}
+    <h1>{{ author.first_name }}</h1>
+    <a href="/authors/{{ author.id }}"><img src="{{ author.portrait_url }}"></a>
+        <a href="/authors/{{ author.id }}/edit"><input id="edit-author" class="btn btn-default" type="submit" value="Edit"></a>
+    		<a href="/authors/{{ author.id }}/delete"><input id="remove" class="btn btn-default" type="button" value="Remove"></a><br><br>
+    <h4>{{ author.last_name }}</h4>
+    <h4>{{ author.biography }}</h4>
+    
+
+		{% if programmers.length == 1 %}
+			<p>Back to <a href="/authors">All Authors</a></p>
+		{% endif %}
+		
+   {% endfor %}
+  </div>
+
+{% endblock %}

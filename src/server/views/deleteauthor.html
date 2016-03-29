@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+{% for author in author_to_delete %}
+  <div class="container">
+  <p>This is the delete page.</p>
+    <h1>{{ author.first_name }}</h1>
+    <h4>{{ author.last_name }}</h4>
+    <h4>{{ author.biography }}</h4>
+    <img src="{{ author.portrait_url }}">
+    <form action="/authors/{{ author.id }}/delete" method="post">
+      <a href="/authors/{{ author.id }}"><input id="cancel" class="btn btn-default" type="button" value="Cancel"></a>
+      <input id="delete" class="btn btn-default" type="submit" value="Delete"><br><br>
+    </form>
+    <p>Back to <a href="/authors">All Authors</a></p>
+  </div>
+{% endfor %}
+
+{% endblock %}

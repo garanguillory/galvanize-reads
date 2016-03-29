@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+  <div class="container">
+  {% for book in programming_books %}
+    <form action="/books/{{ book.id }}/edit" method="post">
+      <label for="">Title</label><br>
+      <input name="title" type="text" value="{{book.title}}"><br><br>
+      <label for="">Genre</label><br>
+      <input name="genre" type="text" value="{{ book.genre }}"><br><br>
+      <label for="">Description</label><br> 
+      <textarea name="description">{{ book.description }}</textarea><br><br>
+      <label for="">Cover Image URL</label><br> 
+      <input name="cover_url" type="text" value="{{ book.cover_url }}"><br><br>
+      <input id="edit-book" class="btn btn-default" type="submit" value="Edit Book">
+      <a href="/books/{{ book.id }}"><input id="cancel" class="btn btn-default" type="button" value="Cancel"></a><br><br>
+      <p>Back to <a href="/books">All Books</a></p>
+    </form>
+  {% endfor %}
+  </div>
+
+{% endblock %}

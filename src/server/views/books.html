@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+  <div class="container">
+  {% for book in programming_books %}
+    <h1>{{ book.title }}</h1>
+    <h4>{{ book.genre }}</h4>
+    <h4>{{ book.description }}</h4>
+    <a href="/books/{{ book.id }}"><img src="{{ book.cover_url }}"></a>
+    <a href="/books/{{ book.id }}/edit"><input id="edit-book" class="btn btn-default" type="submit" value="Edit"></a>
+		<a href="/books/{{ book.id }}/delete"><input id="remove" class="btn btn-default" type="button" value="Remove"></a><br><br>
+
+		{% if programming_books.length == 1% }
+			<p>Back to <a href="/books">All Books</a></p>
+		{% endif %}
+
+   {% endfor %}
+  </div>
+
+{% endblock %}

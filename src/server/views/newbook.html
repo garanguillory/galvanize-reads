@@ -7,6 +7,13 @@
 
   <div class="container">
     <form action="/books/new" method="post">
+    <label for="">Author</label><br>
+      <select name="authorsId">
+        {% for author in author_list %}
+        <option value="{{ author.id }}">{{ author.first_name }} {{ author.last_name }}</option>
+        {% endfor %}
+      </select> <br><br>
+      
       <label for="">Title</label><br>
       <input name="title" type="text" placeholder="book title goes here"><br><br>
       <label for="">Genre</label><br>
